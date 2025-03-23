@@ -14,7 +14,7 @@ def img_to_base64(image_path):
         img_data = img_file.read()
         return base64.b64encode(img_data).decode()
 
-image_path = "F:\\Guvi Projects\\Mental_Health_Survey\\Image\\Neural_Networks.webp"
+image_path = "Image/Neural_Networks.webp"
 
 try:
     img_base64 = img_to_base64(image_path)
@@ -120,12 +120,12 @@ def safe_load_file(file_path, default=None):
 @st.cache_resource
 def load_preprocessor():
 
-    return safe_load_file("F:\\Guvi Projects\\Mental_Health_Survey\\Model\\preprocessor.pkl")
+    return safe_load_file("Model/preprocessor.pkl")
     
 @st.cache_resource
 def load_model():
     try:
-        model = tf.keras.models.load_model("F:\\Guvi Projects\\Mental_Health_Survey\\Model\\neural_network.keras")
+        model = tf.keras.models.load_model("Model/neural_network.keras")
 
         return model
     
@@ -137,7 +137,7 @@ def load_model():
 @st.cache_resource
 def load_cleaning():
 
-    return safe_load_file("F:\\Guvi Projects\\Mental_Health_Survey\\Model\\cleaning.pkl", pd.DataFrame())
+    return safe_load_file("Model/cleaning.pkl", pd.DataFrame())
 
 def predict_depression(input_data, model, preprocessor):
 
